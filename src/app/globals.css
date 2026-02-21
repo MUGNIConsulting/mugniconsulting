@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+
+  --color-purple-50: #faf5ff;
+  --color-purple-100: #f3e8ff;
+  --color-purple-200: #e9d5ff;
+  --color-purple-300: #d8b4fe;
+  --color-purple-400: #c084fc;
+  --color-purple-500: #a855f7;
+  --color-purple-600: #9333ea;
+
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  --color-rose-50: #fff1f2;
+  --color-rose-600: #e11d48;
+  --color-blue-50: #eff6ff;
+  --color-blue-600: #2563eb;
+  --color-cyan-50: #ecfeff;
+  --color-cyan-600: #0891b2;
+  --color-indigo-50: #eef2ff;
+  --color-indigo-600: #4f46e5;
+  --color-sky-50: #f0f9ff;
+  --color-sky-600: #0284c7;
+  --color-orange-50: #fff7ed;
+  --color-orange-600: #ea580c;
+  --color-yellow-50: #fefce8;
+  --color-yellow-700: #a16207;
+  --color-violet-50: #f5f3ff;
+  --color-violet-600: #7c3aed;
+  --color-pink-50: #fdf2f8;
+  --color-pink-600: #db2777;
+  --color-lime-50: #f7fee7;
+  --color-lime-700: #4d7c0f;
+  --color-fuchsia-50: #fdf4ff;
+  --color-fuchsia-600: #c026d3;
+
+  --font-display: "Sora", sans-serif;
+  --font-body: "Outfit", sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: var(--color-slate-700);
+  }
+  ::selection {
+    background-color: var(--color-teal-200);
+    color: var(--color-teal-900);
+  }
+}
+
+@layer components {
+  .section-padding { @apply py-20 md:py-28; }
+
+  .card-modern {
+    @apply bg-white rounded-3xl border border-slate-200/80 p-8;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.04);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .card-modern:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 20px 60px rgba(15,118,110,0.08);
+    transform: translateY(-4px);
+    border-color: var(--color-teal-200);
+  }
+
+  .badge-accent {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium;
+    background: var(--color-teal-50);
+    color: var(--color-teal-800);
+    border: 1px solid var(--color-teal-200);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-teal-700), var(--color-purple-500), var(--color-amber-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 font-semibold text-sm rounded-2xl transition-all duration-300;
+    background: var(--color-teal-700);
+    color: white;
+  }
+  .btn-primary:hover {
+    background: var(--color-teal-800);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(15,118,110,0.3);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 font-semibold text-sm rounded-2xl transition-all duration-300;
+    border: 1.5px solid var(--color-slate-200);
+    color: var(--color-slate-700);
+  }
+  .btn-outline:hover {
+    border-color: var(--color-teal-300);
+    color: var(--color-teal-700);
+    background: var(--color-teal-50);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 transition;
+  }
+  .input-field::placeholder {
+    color: var(--color-slate-400);
+  }
+  .input-field:focus {
+    border-color: var(--color-teal-400);
+    box-shadow: 0 0 0 3px rgba(15,118,110,0.1);
+    outline: none;
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .h-18 {
+    height: 4.5rem;
+  }
+}
